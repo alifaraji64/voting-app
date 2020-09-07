@@ -18,7 +18,10 @@ if (isset($_POST['login_submit'])) {
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
+            // $row[3] is 'no' by default
             $_SESSION['is_admin'] = $row[3];
+            $_SESSION['voted_for'] = $row[4];
+            $_SESSION['user_email'] = $row[1];
             $_SESSION['logged-in'] = 'yes';
             header('Location:secret.php');
             exit();

@@ -1,8 +1,9 @@
+
 CREATE TABLE `user`(
-    `user_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,AUTO_INCREMENT=1,
+    `user_id` int(11) NOT NULL ,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL
-)
+);
 ALTER TABLE `user`
 MODIFY `user_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,AUTO_INCREMENT=1;
 
@@ -11,7 +12,7 @@ CREATE TABLE `position`(
     `position_name` varchar(255) NOT NULL,
     `time` datetime DEFAULT NOW()
 );
-INSERT INTO `position`(`position_name`,`time`) VALUES
+INSERT INTO `position`(`position_name`) VALUES
 ('doctor'),
 ('web developer'),
 ('designer'),
@@ -32,4 +33,6 @@ INSERT INTO `candidate`(`candidate_name`,`candidate_position`) VALUES
 ('maryam parvaneh','driver');
 
 ALTER TABLE `user` ADD `is_admin` varchar(10) NOT NULL DEFAULT 'no';
-
+ALTER TABLE `user` ADD `voted_for` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `candidate` ADD `votes` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `user` MODIFY `voted_for` varchar(400) NOT null DEFAULT '';

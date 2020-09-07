@@ -1,4 +1,5 @@
 <?php
+$restrict_page();
 $candidates = $candidate->getData();
 //make it work when candidates return null
 if ($candidates !== null && count($candidates) > 0) {
@@ -66,9 +67,6 @@ $positions_arr = array_map(function ($position) {
                 <input type="text" class='form-control mx-3' name="candidate_name" placeholder="candidate name">
                 <select name="candidate_position" class='custom-select'>
                     <option value=''>select position</option>
-                    <!-- <option value="designer">designer</option>
-                    <option value="president">president</option>
-                    <option value="doctor">doctor</option> -->
                     <?php foreach ($positions_arr as $position) { ?>
                         <option value="<?php echo $position ?>"><?php echo $position ?></option>
                     <?php } ?>

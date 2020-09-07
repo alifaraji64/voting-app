@@ -3,6 +3,7 @@
 if (isset($_POST['logout_submit'])) {
     session_start();
     $_SESSION['logged-in'] = 'no';
+    $_SESSION['user_email'] = null;
     header('Location:login.php');
     exit();
 }
@@ -30,13 +31,12 @@ if (isset($_POST['logout_submit'])) {
         session_start();
         if ($_SESSION['logged-in'] == 'yes') {
             echo "
+            <h5 class='mr-3'>{$_SESSION['user_email']}</h5>
             <form class='form-inline my-2 my-lg-0' method='POST'>
                <button class='btn btn-dark my-2 my-sm-0' type='submit' name='logout_submit'>Logout</button>
             </form>
             ";
         }
-
         ?>
-
     </div>
 </nav>

@@ -15,4 +15,9 @@ $restrict_page = function () {
         header('Location:login.php?session');
         exit();
     }
+    //if the user is logged in but is not admin
+    else if( $_SESSION['is_admin'] == 'no'){
+        header('Location:voter.php');
+        exit();
+    }
 };
